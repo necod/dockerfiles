@@ -1,6 +1,7 @@
 #!/bin/bash
 if [ -f "/config/users.txt" ]; then
     while read -r USERNAME USERID GRPID PASS; do
+        groupadd -r -g $GRPID $USERNAME
         useradd -M -g $GRPID --uid $USERID $USERNAME
         echo "$USERNAME:$PASS" | chpasswd
         printf "$PASS\n$PASS\n" | smbpasswd -s -a $USERNAME
