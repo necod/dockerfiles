@@ -6,6 +6,6 @@ if [ ! -f '/config/config.xml' ]; then
     /syncthing -home=/config &
     sleep 5
     pkill syncthing
-    sed -i 's/<address>127.0.0.1:8384<\/address>/<address>:8384<\/address>' /config/config.xml
+    sed -i 's/<address>127.0.0.1:8384<\/address>/<address>:8384<\/address>/' /config/config.xml
 fi
 /syncthing -home=/config
